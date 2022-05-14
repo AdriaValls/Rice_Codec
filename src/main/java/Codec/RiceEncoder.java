@@ -1,18 +1,22 @@
 package Codec;
 
 import java.lang.Math;
+import java.util.ArrayList;
 
 public class RiceEncoder {
 
-    public StringBuffer encodeSequence(){
+    public StringBuffer encodeSequence(ArrayList<Integer> numList, int M){
+
         StringBuffer bitSequence = new StringBuffer("");
 
-
-        
+        for(int i=0; i<numList.size(); i++){
+            bitSequence.append(encodeNumber(numList.get(i),M));
+        }
         return bitSequence;
     }
 
     public StringBuffer encodeNumber(int number, int M){
+
         StringBuffer bitCode = new StringBuffer("");
 
         int Q = Math.abs(number/M);
@@ -36,8 +40,10 @@ public class RiceEncoder {
     }
 
     public StringBuffer numberToBinary(int number, int R,int M){
+
         StringBuffer bitString = new StringBuffer("");
         StringBuffer numStr = new StringBuffer("");
+
         int numBits = (int)Math.ceil(Math.log(M) / Math.log(2));
         numStr.append(Integer.toBinaryString(R)) ;
 
@@ -49,7 +55,5 @@ public class RiceEncoder {
 
         return bitString;
     }
-
-    //(int)Math.ceil(Math.log(M) / Math.log(2))
-
+    
 }
