@@ -5,6 +5,10 @@ import java.util.ArrayList;
 
 public class RiceEncoder {
 
+    public RiceEncoder(){
+
+    }
+
     public StringBuffer encodeSequence(ArrayList<Integer> numList, int M){
 
         StringBuffer bitSequence = new StringBuffer("");
@@ -55,5 +59,5 @@ public class RiceEncoder {
 
         return bitString;
     }
-    
+
 }
